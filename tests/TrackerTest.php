@@ -2,11 +2,11 @@
 
 namespace mssayari\Laravel\VisitorTracker\Test;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use mssayari\Laravel\VisitorTracker\Tracker;
-use mssayari\Laravel\VisitorTracker\Models\Visit;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
+use mssayari\Laravel\VisitorTracker\Tracker;
 
 class TrackerTest extends TestCase
 {

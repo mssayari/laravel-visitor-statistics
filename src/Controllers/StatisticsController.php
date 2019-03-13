@@ -2,16 +2,16 @@
 
 namespace mssayari\Laravel\VisitorTracker\Controllers;
 
-use mssayari\Laravel\VisitorTracker\Models\Visit;
 use Carbon\Carbon;
 use mssayari\Laravel\VisitorTracker\Facades\VisitStats;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
 
 class StatisticsController
 {
     protected function viewSettings()
     {
         return [
-            'visitortrackerLayout' => config('visitortracker.layout'),
+            'visitortrackerLayout'         => config('visitortracker.layout'),
             'visitortrackerSectionContent' => config('visitortracker.section_content'),
         ];
     }

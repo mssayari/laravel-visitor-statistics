@@ -4,8 +4,8 @@ namespace mssayari\Laravel\VisitorTracker;
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\OperatingSystem;
-use mssayari\Laravel\VisitorTracker\Models\Visit;
 use mssayari\Laravel\VisitorTracker\Jobs\GetGeoipData;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
 
 class Tracker
 {
@@ -20,9 +20,10 @@ class Tracker
     ];
 
     /**
-     * Records a visit/request based on the request()
+     * Records a visit/request based on the request().
      *
      * @param string $agent
+     *
      * @return mssayari\Laravel\VisitorTracker\Models\Visit
      */
     public static function recordVisit($agent = null)
@@ -39,7 +40,7 @@ class Tracker
 
         // Determine if the request is a login attempt
         if (request()->route()
-        && '/' . request()->route()->uri == config('visitortracker.login_attempt.url')
+        && '/'.request()->route()->uri == config('visitortracker.login_attempt.url')
         && $data['method'] == config('visitortracker.login_attempt.method')
         && $data['is_ajax'] == config('visitortracker.login_attempt.is_ajax')) {
             $data['is_login_attempt'] = true;
@@ -58,9 +59,9 @@ class Tracker
 
     /**
      * Determine if the user should be tracked based on whether they are
-     * authenticated or not
+     * authenticated or not.
      *
-     * @return boolean
+     * @return bool
      */
     protected static function shouldTrackUser()
     {
@@ -76,9 +77,9 @@ class Tracker
     }
 
     /**
-     * Determine if the authenticated user should be tracked
+     * Determine if the authenticated user should be tracked.
      *
-     * @return boolean
+     * @return bool
      */
     protected static function shouldTrackAuthenticatedUser()
     {
@@ -101,9 +102,9 @@ class Tracker
     }
 
     /**
-     * Determine if the request/visit should be recorded
+     * Determine if the request/visit should be recorded.
      *
-     * @return boolean
+     * @return bool
      */
     protected static function shouldRecordRequest($data)
     {
@@ -124,9 +125,10 @@ class Tracker
     }
 
     /**
-     * Collect and form into array data about the current visit based on the request() and UA
+     * Collect and form into array data about the current visit based on the request() and UA.
      *
      * @param string $agent User agent
+     *
      * @return array
      */
     protected static function getVisitData($agent)
@@ -136,7 +138,7 @@ class Tracker
 
         // Browser
         $browser = $dd->getClient('version')
-            ? $dd->getClient('name') . ' ' . $dd->getClient('version')
+            ? $dd->getClient('name').' '.$dd->getClient('version')
             : $dd->getClient('name');
 
         $browserFamily = str_replace(' ', '-', strtolower($dd->getClient('name')));
@@ -149,7 +151,7 @@ class Tracker
 
         // OS
         $os = $dd->getOs('version')
-            ? $dd->getOs('name') . ' ' . $dd->getOs('version')
+            ? $dd->getOs('name').' '.$dd->getOs('version')
             : $dd->getOs('name');
 
         $osFamily = str_replace(
@@ -177,24 +179,24 @@ class Tracker
 
         return [
             'user_id' => auth()->check() ? auth()->id() : null,
-            'ip' => request()->ip(),
-            'method' => request()->method(),
-            'url' => request()->fullUrl(),
+            'ip'      => request()->ip(),
+            'method'  => request()->method(),
+            'url'     => request()->fullUrl(),
             'referer' => request()->headers->get('referer'),
             'is_ajax' => request()->ajax(),
 
-            'user_agent' => $agent,
-            'is_mobile' => $dd->isMobile(),
-            'is_desktop' => $dd->isDesktop(),
-            'is_bot' => $isBot,
-            'bot' => $bot ? $bot['name'] : null,
-            'os' => $os,
-            'os_family' => $osFamily,
+            'user_agent'     => $agent,
+            'is_mobile'      => $dd->isMobile(),
+            'is_desktop'     => $dd->isDesktop(),
+            'is_bot'         => $isBot,
+            'bot'            => $bot ? $bot['name'] : null,
+            'os'             => $os,
+            'os_family'      => $osFamily,
             'browser_family' => $browserFamily,
-            'browser' => $browser,
+            'browser'        => $browser,
 
             'browser_language_family' => $langFamily,
-            'browser_language' => $lang,
+            'browser_language'        => $lang,
         ];
     }
 }

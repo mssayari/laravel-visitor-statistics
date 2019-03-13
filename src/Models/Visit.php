@@ -11,9 +11,9 @@ class Visit extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'is_ajax' => 'boolean',
+        'is_ajax'          => 'boolean',
         'is_login_attempt' => 'boolean',
-        'is_bot' => 'boolean',
-        'is_mobile' => 'boolean',
+        'is_bot'           => 'boolean',
+        'is_mobile'        => 'boolean',
     ];
 }

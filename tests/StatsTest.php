@@ -2,10 +2,10 @@
 
 namespace mssayari\Laravel\VisitorTracker\Test;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use mssayari\Laravel\VisitorTracker\VisitStats;
-use mssayari\Laravel\VisitorTracker\Models\Visit;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
+use mssayari\Laravel\VisitorTracker\VisitStats;
 
 class StatsTest extends TestCase
 {
@@ -20,22 +20,22 @@ class StatsTest extends TestCase
 
         for ($i = 0; $i < $this->visitCount; $i++) {
             $data = [
-                'ip' => '127.0.0.1',
-                'method' => ['GET', 'POST'][mt_rand(0, 1)],
-                'url' => 'http://example.com/',
-                'user_agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0',
-                'os_family' => ['Windows', 'Linux'][mt_rand(0, 1)],
-                'os' => ['Windows 10.0', 'Ubuntu'][mt_rand(0, 1)],
-                'browser_family' => ['Chrome', 'Firefox'][mt_rand(0, 1)],
-                'browser' => ['Chrome 67.0', 'Firefox 58.0'][mt_rand(0, 1)],
-                'country' => ['Russia', 'Philippines'][mt_rand(0, 1)],
-                'country_code' => ['RU', 'PH'][mt_rand(0, 1)],
-                'city' => ['Moscow', 'St. Petersburg', 'Manila', 'Cebu'][mt_rand(0, 3)],
-                'lat' => 123.235435,
-                'long' => 23.235435,
+                'ip'                      => '127.0.0.1',
+                'method'                  => ['GET', 'POST'][mt_rand(0, 1)],
+                'url'                     => 'http://example.com/',
+                'user_agent'              => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0',
+                'os_family'               => ['Windows', 'Linux'][mt_rand(0, 1)],
+                'os'                      => ['Windows 10.0', 'Ubuntu'][mt_rand(0, 1)],
+                'browser_family'          => ['Chrome', 'Firefox'][mt_rand(0, 1)],
+                'browser'                 => ['Chrome 67.0', 'Firefox 58.0'][mt_rand(0, 1)],
+                'country'                 => ['Russia', 'Philippines'][mt_rand(0, 1)],
+                'country_code'            => ['RU', 'PH'][mt_rand(0, 1)],
+                'city'                    => ['Moscow', 'St. Petersburg', 'Manila', 'Cebu'][mt_rand(0, 3)],
+                'lat'                     => 123.235435,
+                'long'                    => 23.235435,
                 'browser_language_family' => ['ru', 'en', 'tl'][mt_rand(0, 1)],
-                'browser_language' => ['ru-RU', 'en-US', 'tl-PH'][mt_rand(0, 1)],
-                'created_at' => Carbon::now()->subDays($i)
+                'browser_language'        => ['ru-RU', 'en-US', 'tl-PH'][mt_rand(0, 1)],
+                'created_at'              => Carbon::now()->subDays($i),
             ];
 
             Visit::create($data);
@@ -91,10 +91,10 @@ class StatsTest extends TestCase
     public function testGetLoginAttempts()
     {
         Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
+            'ip'               => '127.0.0.1',
+            'url'              => 'localhost/',
             'is_login_attempt' => true,
-            'browser_family' => 'Pairpaks',
+            'browser_family'   => 'Pairpaks',
         ]);
 
         $results = VisitStats::query()->visits()->loginAttempts()->get();
@@ -106,9 +106,9 @@ class StatsTest extends TestCase
     public function testGetBots()
     {
         Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
-            'is_bot' => true,
+            'ip'             => '127.0.0.1',
+            'url'            => 'localhost/',
+            'is_bot'         => true,
             'browser_family' => 'Pairpaks',
         ]);
 
@@ -121,9 +121,9 @@ class StatsTest extends TestCase
     public function testAjaxRequests()
     {
         Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
-            'is_ajax' => true,
+            'ip'             => '127.0.0.1',
+            'url'            => 'localhost/',
+            'is_ajax'        => true,
             'browser_family' => 'Pairpaks',
         ]);
 
@@ -136,23 +136,23 @@ class StatsTest extends TestCase
     public function testGetAllRequestsExcept()
     {
         Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
+            'ip'               => '127.0.0.1',
+            'url'              => 'localhost/',
             'is_login_attempt' => true,
+            'browser_family'   => 'Pairpaks',
+        ]);
+
+        Visit::create([
+            'ip'             => '127.0.0.1',
+            'url'            => 'localhost/',
+            'is_bot'         => true,
             'browser_family' => 'Pairpaks',
         ]);
 
         Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
-            'is_bot' => true,
-            'browser_family' => 'Pairpaks',
-        ]);
-
-        Visit::create([
-            'ip' => '127.0.0.1',
-            'url' => 'localhost/',
-            'is_ajax' => true,
+            'ip'             => '127.0.0.1',
+            'url'            => 'localhost/',
+            'is_ajax'        => true,
             'browser_family' => 'Pairpaks',
         ]);
 
@@ -176,16 +176,16 @@ class StatsTest extends TestCase
     {
         for ($i = 0; $i < 5; $i++) {
             Visit::create([
-                'ip' => '127.0.0.1',
-                'url' => 'localhost/',
+                'ip'           => '127.0.0.1',
+                'url'          => 'localhost/',
                 'country_code' => 'FI',
             ]);
         }
 
         for ($i = 0; $i < 6; $i++) {
             Visit::create([
-                'ip' => '127.0.0.1',
-                'url' => 'localhost/',
+                'ip'           => '127.0.0.1',
+                'url'          => 'localhost/',
                 'country_code' => 'EE',
             ]);
         }

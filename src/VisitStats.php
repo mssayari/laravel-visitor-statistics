@@ -2,65 +2,65 @@
 
 namespace mssayari\Laravel\VisitorTracker;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 class VisitStats
 {
     /**
-     * The SELECT part of the SQL query
+     * The SELECT part of the SQL query.
      *
      * @var string
      */
     protected $sqlSelect = '';
 
     /**
-     * The GROUP BY part of the SQL query
+     * The GROUP BY part of the SQL query.
      *
      * @var string
      */
     protected $sqlGroupBy = '';
 
     /**
-     * Array of WHERE clauses
+     * Array of WHERE clauses.
      *
      * @var array
      */
     protected $where = [];
 
     /**
-     * Array of ORDER BY clauses
+     * Array of ORDER BY clauses.
      *
      * @var array
      */
     protected $orderBy = [];
 
     /**
-     * The LIMIT/OFFSET part of the SQL query
+     * The LIMIT/OFFSET part of the SQL query.
      *
      * @var string
      */
     protected $sqlLimitOffset = '';
 
     /**
-     * The rest of the SQL query
+     * The rest of the SQL query.
      *
      * @var string
      */
     protected $sql = '';
 
     /**
-     * A field to group the results by
+     * A field to group the results by.
      *
      * @var string
      */
     protected $groupBy;
 
     /**
-     * Adds routes to the statistics pages
+     * Adds routes to the statistics pages.
      *
      * @return void
      */
@@ -87,21 +87,22 @@ class VisitStats
     }
 
     /**
-     * Initializes a query builder
+     * Initializes a query builder.
      *
      * @return self
      */
     public static function query()
     {
-        return new Self;
+        return new Self();
     }
 
     /**
-     * Adds an item to the $where array
+     * Adds an item to the $where array.
      *
      * @param string $field
      * @param string $symbol
      * @param string $value
+     *
      * @return $this
      */
     public function where($field, $symbol, $value)
@@ -112,9 +113,10 @@ class VisitStats
     }
 
     /**
-     * Exclude rows where certain boolean fields are equal to true
+     * Exclude rows where certain boolean fields are equal to true.
      *
      * @param string $fields
+     *
      * @return $this
      */
     public function except($fields)
@@ -135,10 +137,11 @@ class VisitStats
     }
 
     /**
-     * Adds an item to the $orderBy array
+     * Adds an item to the $orderBy array.
      *
      * @param string $field
      * @param string $direction
+     *
      * @return $this
      */
     public function orderBy($field, $direction = 'ASC')
@@ -150,9 +153,10 @@ class VisitStats
 
     /**
      * Adds SQL to the query to group the results by a field, fetching the latest row
-     * from each group and counting the number of rows in each group
+     * from each group and counting the number of rows in each group.
      *
      * @param string $field
+     *
      * @return $this
      */
     public function groupBy($field)
@@ -186,7 +190,7 @@ class VisitStats
     }
 
     /**
-     * Returns a WHERE SQL clause formed from the $where array
+     * Returns a WHERE SQL clause formed from the $where array.
      *
      * @return string
      */
@@ -210,7 +214,7 @@ class VisitStats
     }
 
     /**
-     * Returns an ORDER BY SQL clause formed from the $orderBy array
+     * Returns an ORDER BY SQL clause formed from the $orderBy array.
      *
      * @return string
      */
@@ -234,24 +238,24 @@ class VisitStats
     }
 
     /**
-     * Returns the final SQL concatenated from multiple parts
+     * Returns the final SQL concatenated from multiple parts.
      *
      * @return string
      */
     public function sql()
     {
         return $this->sqlSelect
-            . $this->sql
-            . $this->sqlWhere()
-            . $this->sqlGroupBy
-            . $this->sqlOrderBy()
-            . $this->sqlLimitOffset;
+            .$this->sql
+            .$this->sqlWhere()
+            .$this->sqlGroupBy
+            .$this->sqlOrderBy()
+            .$this->sqlLimitOffset;
     }
 
     /**
-     * Returns the count of rows from the query held in the query builder at the moment
+     * Returns the count of rows from the query held in the query builder at the moment.
      *
-     * @return integer
+     * @return int
      */
     public function count()
     {
@@ -268,10 +272,11 @@ class VisitStats
     }
 
     /**
-     * Filter results by the 'created_at' field to fetch records between 2 dates
+     * Filter results by the 'created_at' field to fetch records between 2 dates.
      *
      * @param Carbon\Carbon $from
      * @param Carbon\Carbon $to
+     *
      * @return $this
      */
     public function period(Carbon $from = null, Carbon $to = null)
@@ -288,9 +293,10 @@ class VisitStats
     }
 
     /**
-     * Returns paginated query results using Laravel's LengthAwarePaginator
+     * Returns paginated query results using Laravel's LengthAwarePaginator.
      *
-     * @param integer $perPage
+     * @param int $perPage
+     *
      * @return Illuminate\Pagination\LengthAwarePaginator
      */
     public function paginate($perPage)
@@ -307,12 +313,12 @@ class VisitStats
         $results = $this->get();
 
         return new LengthAwarePaginator($results, $totalCount, $perPage, $page, [
-            'path' => Paginator::resolveCurrentPath()
+            'path' => Paginator::resolveCurrentPath(),
         ]);
     }
 
     /**
-     * Executes the query from the query builder and returns the results
+     * Executes the query from the query builder and returns the results.
      *
      * @return array
      */
@@ -324,7 +330,7 @@ class VisitStats
     }
 
     /**
-     * Forms a basic query to fetch all the fields from the visitortracker_visits table
+     * Forms a basic query to fetch all the fields from the visitortracker_visits table.
      *
      * @return void
      */
@@ -339,7 +345,7 @@ class VisitStats
 
     /**
      * Adds a query to the builder to fetch additional data from the users table
-     * along with the visits
+     * along with the visits.
      *
      * @return $this
      */
@@ -358,7 +364,7 @@ class VisitStats
     }
 
     /**
-     * Orders the results by id DESC to get the latest visits first
+     * Orders the results by id DESC to get the latest visits first.
      *
      * @return void
      */
@@ -368,7 +374,7 @@ class VisitStats
     }
 
     /**
-     * Return only login attempts
+     * Return only login attempts.
      *
      * @return $this
      */
@@ -378,7 +384,7 @@ class VisitStats
     }
 
     /**
-     * Return only visits from bots/crawlers
+     * Return only visits from bots/crawlers.
      *
      * @return $this
      */
@@ -388,7 +394,7 @@ class VisitStats
     }
 
     /**
-     * Return only ajax requests
+     * Return only ajax requests.
      *
      * @return $this
      */
@@ -398,7 +404,7 @@ class VisitStats
     }
 
     /**
-     * Return only unique (by ip) visitors
+     * Return only unique (by ip) visitors.
      *
      * @return $this
      */

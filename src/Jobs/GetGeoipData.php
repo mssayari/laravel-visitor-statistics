@@ -3,12 +3,12 @@
 namespace mssayari\Laravel\VisitorTracker\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use mssayari\Laravel\VisitorTracker\Models\Visit;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use mssayari\Laravel\VisitorTracker\Geoip;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
 
 class GetGeoipData implements ShouldQueue
 {
@@ -47,11 +47,11 @@ class GetGeoipData implements ShouldQueue
             if ($geoip->driver) {
                 if ($geoip = $geoip->driver->getDataFor($this->visit)) {
                     $data = [
-                        'lat' => $geoip->latitude() ?: null,
-                        'long' => $geoip->longitude() ?: null,
-                        'country' => $geoip->country() ?: '',
+                        'lat'          => $geoip->latitude() ?: null,
+                        'long'         => $geoip->longitude() ?: null,
+                        'country'      => $geoip->country() ?: '',
                         'country_code' => $geoip->countryCode() ?: '',
-                        'city' => $geoip->city() ?: '',
+                        'city'         => $geoip->city() ?: '',
                     ];
 
                     if ($this->shouldRecordVisit($data)) {
@@ -65,9 +65,9 @@ class GetGeoipData implements ShouldQueue
     }
 
     /**
-     * Determine if the request/visit should be recorded
+     * Determine if the request/visit should be recorded.
      *
-     * @return boolean
+     * @return bool
      */
     protected static function shouldRecordVisit($data)
     {

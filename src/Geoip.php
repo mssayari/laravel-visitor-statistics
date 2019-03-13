@@ -2,8 +2,8 @@
 
 namespace mssayari\Laravel\VisitorTracker;
 
-use mssayari\Laravel\VisitorTracker\Geoip\Userinfo;
 use mssayari\Laravel\VisitorTracker\Geoip\Ipstack;
+use mssayari\Laravel\VisitorTracker\Geoip\Userinfo;
 
 class Geoip
 {

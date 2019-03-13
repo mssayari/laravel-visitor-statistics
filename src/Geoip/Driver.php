@@ -2,22 +2,23 @@
 
 namespace mssayari\Laravel\VisitorTracker\Geoip;
 
-use mssayari\Laravel\VisitorTracker\Models\Visit;
 use GuzzleHttp\Client;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
 
 abstract class Driver
 {
     /**
-     * Holds data fetched from a remote geoapi service
+     * Holds data fetched from a remote geoapi service.
      *
-     * @var Object
+     * @var object
      */
     protected $data;
 
     /**
-     * Fetch data from a remote geoapi service
+     * Fetch data from a remote geoapi service.
      *
      * @param mssayari\Laravel\VisitorTracker\Models\Visit $visit
+     *
      * @return $this
      */
     public function getDataFor(Visit $visit)
@@ -31,48 +32,47 @@ abstract class Driver
 
             return $this;
         }
-
-        return null;
     }
 
     /**
-     * Returns an endpoint to fetch the data from
+     * Returns an endpoint to fetch the data from.
      *
      * @param string $ip IP address to fetch geolocation data for
+     *
      * @return string
      */
     abstract protected function getEndpoint($ip);
 
     /**
-     * Returns latitude from the fetched data
+     * Returns latitude from the fetched data.
      *
      * @return string
      */
     abstract public function latitude();
 
     /**
-     * Returns longitude from the fetched data
+     * Returns longitude from the fetched data.
      *
      * @return string
      */
     abstract public function longitude();
 
     /**
-     * Returns country from the fetched data
+     * Returns country from the fetched data.
      *
      * @return string
      */
     abstract public function country();
 
     /**
-     * Returns country code from the fetched data
+     * Returns country code from the fetched data.
      *
      * @return string
      */
     abstract public function countryCode();
 
     /**
-     * Returns city from the fetched data
+     * Returns city from the fetched data.
      *
      * @return string
      */
