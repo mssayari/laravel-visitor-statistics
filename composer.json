@@ -1,12 +1,12 @@
 {
-    "name": "voerro/laravel-visitor-tracker",
+    "name": "mssayari/laravel-visitor-tracker",
     "description": "Visitor tracker and statistics for Laravel 5",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Alexander Zavyalov",
-            "email": "alex@voerro.com"
+            "name": "Mojtaba Sayari",
+            "email": "ms.sayyari@gmail.com"
         }
     ],
     "minimum-stability": "stable",
@@ -27,21 +27,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Voerro\\Laravel\\VisitorTracker\\": "src/"
+            "mssayari\\Laravel\\VisitorTracker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Voerro\\Laravel\\VisitorTracker\\Test\\": "tests/"
+            "mssayari\\Laravel\\VisitorTracker\\Test\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Voerro\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
+                "mssayari\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
             ],
             "aliases": {
-                "VisitStats": "Voerro\\Laravel\\VisitorTracker\\Facades\\VisitStats"
+                "VisitStats": "mssayari\\Laravel\\VisitorTracker\\Facades\\VisitStats"
             }
         }
     }

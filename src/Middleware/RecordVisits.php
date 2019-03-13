@@ -1,9 +1,9 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Middleware;
+namespace mssayari\Laravel\VisitorTracker\Middleware;
 
 use Closure;
-use Voerro\Laravel\VisitorTracker\Tracker;
+use mssayari\Laravel\VisitorTracker\Tracker;
 
 class RecordVisits
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Controllers;
+namespace mssayari\Laravel\VisitorTracker\Controllers;
 
-use Voerro\Laravel\VisitorTracker\Models\Visit;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
 use Carbon\Carbon;
-use Voerro\Laravel\VisitorTracker\Facades\VisitStats;
+use mssayari\Laravel\VisitorTracker\Facades\VisitStats;
 
 class StatisticsController
 {

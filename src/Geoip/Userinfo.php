@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Geoip;
+namespace mssayari\Laravel\VisitorTracker\Geoip;
 
 class Userinfo extends Driver
 {

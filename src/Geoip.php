@@ -1,9 +1,9 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker;
+namespace mssayari\Laravel\VisitorTracker;
 
-use Voerro\Laravel\VisitorTracker\Geoip\Userinfo;
-use Voerro\Laravel\VisitorTracker\Geoip\Ipstack;
+use mssayari\Laravel\VisitorTracker\Geoip\Userinfo;
+use mssayari\Laravel\VisitorTracker\Geoip\Ipstack;
 
 class Geoip
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Models;
+namespace mssayari\Laravel\VisitorTracker\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

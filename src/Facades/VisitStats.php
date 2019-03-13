@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Facades;
+namespace mssayari\Laravel\VisitorTracker\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

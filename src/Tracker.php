@@ -1,11 +1,11 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker;
+namespace mssayari\Laravel\VisitorTracker;
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\OperatingSystem;
-use Voerro\Laravel\VisitorTracker\Models\Visit;
-use Voerro\Laravel\VisitorTracker\Jobs\GetGeoipData;
+use mssayari\Laravel\VisitorTracker\Models\Visit;
+use mssayari\Laravel\VisitorTracker\Jobs\GetGeoipData;
 
 class Tracker
 {
@@ -23,7 +23,7 @@ class Tracker
      * Records a visit/request based on the request()
      *
      * @param string $agent
-     * @return Voerro\Laravel\VisitorTracker\Models\Visit
+     * @return mssayari\Laravel\VisitorTracker\Models\Visit
      */
     public static function recordVisit($agent = null)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker;
+namespace mssayari\Laravel\VisitorTracker;
 
 use Illuminate\Support\ServiceProvider;
 
