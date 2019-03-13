@@ -1,6 +1,6 @@
 # Laravel Visitor Tracker and Statistics
 
-[![Packagist](https://img.shields.io/packagist/v/mssayari/laravel-visitor-tracker.svg?style=flat-square)](https://packagist.org/packages/mssayari/laravel-visitor-tracker) [![Packagist](https://img.shields.io/packagist/dm/mssayari/laravel-visitor-tracker.svg?style=flat-square)](https://packagist.org/packages/mssayari/laravel-visitor-tracker) [![Build Status](https://travis-ci.org/mssayari/laravel-visitor-tracker.svg?branch=master)](https://travis-ci.org/mssayari/laravel-visitor-tracker) [![StyleCI](https://styleci.io/repos/116011849/shield?branch=master)](https://styleci.io/repos/116011849) [![Packagist](https://img.shields.io/packagist/l/mssayari/laravel-visitor-tracker.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Packagist](https://img.shields.io/packagist/v/mssayari/laravel-visitor-statistics.svg?style=flat-square)](https://packagist.org/packages/mssayari/laravel-visitor-statistics) [![Packagist](https://img.shields.io/packagist/dm/mssayari/laravel-visitor-statistics.svg?style=flat-square)](https://packagist.org/packages/mssayari/laravel-visitor-statistics) [![Build Status](https://travis-ci.org/mssayari/laravel-visitor-statistics.svg?branch=master)](https://travis-ci.org/mssayari/laravel-visitor-statistics) [![StyleCI](https://github.styleci.io/repos/175451731/shield?branch=master)](https://styleci.io/repos/175451731) [![Packagist](https://img.shields.io/packagist/l/mssayari/laravel-visitor-statistics.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 Track your authenticated and unauthenticated visitors, login attempts, ajax requests, and more. Includes a controller and a bunch of routes and views to display the statistics, as well as a helper class to fetch the statistics easily (in case you want to display the statistics yourself).
 
@@ -10,7 +10,7 @@ Track your authenticated and unauthenticated visitors, login attempts, ajax requ
 1) Install the package using composer:
 
 ```bash
-composer require mssayari/laravel-visitor-tracker
+composer require mssayari/laravel-visitor-statistics
 ```
 
 2) Run the migration to install the package's table to record visits to by executing:
