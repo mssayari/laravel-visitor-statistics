@@ -1,48 +1,48 @@
 {
-    "name": "mssayari/laravel-visitor-tracker",
-    "description": "Visitor tracker and statistics for Laravel 5",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Mojtaba Sayari",
-            "email": "ms.sayyari@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=7.0",
-        "illuminate/support": "5.5.* | 5.6.* | 5.7.*",
-        "illuminate/http": "5.5.* | 5.6.* | 5.7.*",
-        "illuminate/database": "5.5.* | 5.6.* | 5.7.*",
-        "illuminate/bus": "5.5.* | 5.6.* | 5.7.*",
-        "illuminate/queue": "5.5.* | 5.6.* | 5.7.*",
-        "illuminate/contracts": "5.5.* | 5.6.* | 5.7.*",
-        "piwik/device-detector": "^3.9",
-        "guzzlehttp/guzzle": "~6.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^6.5 | ^7.0",
-        "orchestra/testbench": "^3.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "mssayari\\Laravel\\VisitorTracker\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "mssayari\\Laravel\\VisitorTracker\\Test\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "mssayari\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
-            ],
-            "aliases": {
-                "VisitStats": "mssayari\\Laravel\\VisitorTracker\\Facades\\VisitStats"
-            }
-        }
+  "name": "mssayari/laravel-visitor-statistics",
+  "description": "Visitor tracker and statistics for Laravel 5",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mojtaba Sayari",
+      "email": "ms.sayyari@gmail.com"
     }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.1",
+    "illuminate/support": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "illuminate/http": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "illuminate/database": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "illuminate/bus": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "illuminate/queue": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "illuminate/contracts": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
+    "piwik/device-detector": "^3.9",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5 | ^7.0 | ^8.0",
+    "orchestra/testbench": "^3.5 | ^3.6 | ^3.7 | ^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "mssayari\\Laravel\\VisitorTracker\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "mssayari\\Laravel\\VisitorTracker\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "mssayari\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
+      ],
+      "aliases": {
+        "VisitStats": "mssayari\\Laravel\\VisitorTracker\\Facades\\VisitStats"
+      }
+    }
+  }
 }
