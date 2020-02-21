@@ -64,8 +64,8 @@ class TrackerTest extends TestCase
 
         $visit = Tracker::recordVisit('Mozilla/5.0 (Linux; Android 6.0; Boost3 Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/63.0.3239.111 Mobile Safari/537.36 Instagram 27.0.0.11.97 Android (23/6.0; 480dpi; 1080x1920; Highscreen; Boost3; BF169; mt6735; ru_RU)');
 
-        $this->assertEquals('chrome-mobile', $visit->browser_family);
-        $this->assertEquals('Chrome Mobile 63.0', $visit->browser);
+        $this->assertEquals('instagram-app', $visit->browser_family);
+        $this->assertEquals('Instagram App 27.0', $visit->browser);
 
         $visit = Tracker::recordVisit('Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36');
 
