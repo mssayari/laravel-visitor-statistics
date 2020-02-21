@@ -20,7 +20,7 @@
     "illuminate/contracts": "5.5.* | 5.6.* | 5.7.* | 5.8.*",
     "piwik/device-detector": "^3.9",
     "guzzlehttp/guzzle": "~6.0",
-    "doctrine/dbal": "^2.9"
+    "doctrine/dbal": "^2.10"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.5 | ^7.0 | ^8.0",
